@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { LocalData } from '../services/localdata';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,6 +22,8 @@ export class HomePage {
     private alertController: AlertController,
     private camera: Camera,
     private geolocation: Geolocation,
+    private localNotifications: LocalNotifications,
+    private router: Router,
   ) { }
 
   updateTitle() {
@@ -56,7 +61,8 @@ export class HomePage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       console.log(imageData);
-      this.imgData = 'data:image/jpeg;base64,' + imageData;
+      LocalData.imgData = 'data:image/jpeg;base64,' + imageData;
+      this.router.navigateByUrl('/camera');
     }, (err) => {
       // Handle error
     });
@@ -67,5 +73,12 @@ export class HomePage {
     watch.subscribe((data) => {
       this.geolocArray.push({ lat: data.coords.latitude, lng: data.coords.longitude });
     });
+  }
+
+  notification() {
+    this.localNotifications.schedule({
+      title: 'salut',
+      text: 'ma notif',
+    })
   }
 }
