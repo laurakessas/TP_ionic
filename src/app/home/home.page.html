@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank 1
+      Mon application Ionic !
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,13 +16,11 @@
   <div id="container">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-subtitle>TP</ion-card-subtitle>
+        <ion-card-title>Web Mobile</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
       </ion-card-content>
     </ion-card>
 
@@ -32,14 +30,14 @@
         <ion-label>Fire Alert</ion-label>
       </ion-item>
 
-      <ion-item (click)="takePicture()" class="ion-activated">
-        <ion-icon name="wine" slot="start"></ion-icon>
+      <ion-item routerLink="/camera" class="ion-activated">
+        <ion-icon name="camera-outline" slot="start"></ion-icon>
         <ion-label>Take picture</ion-label>
       </ion-item>
 
       <ion-item (click)="notification()" class="ion-activated">
-        <ion-icon name="wine" slot="start"></ion-icon>
-        <ion-label>notif</ion-label>
+        <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+        <ion-label>Notification</ion-label>
       </ion-item>
 
       <ion-item routerLink="/login">

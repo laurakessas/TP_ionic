@@ -3,9 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-import { LocalData } from '../services/localdata';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-home',
@@ -47,26 +45,26 @@ export class HomePage {
     // affichage de l alerte
     await alert.present();
   }
+  // 
+  // takePicture() {
+  //   const options: CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     encodingType: this.camera.EncodingType.JPEG,
+  //     mediaType: this.camera.MediaType.PICTURE,
+  //     correctOrientation: true
+  //   };
 
-  takePicture() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      correctOrientation: true
-    };
-
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
-      console.log(imageData);
-      LocalData.imgData = 'data:image/jpeg;base64,' + imageData;
-      this.router.navigateByUrl('/camera');
-    }, (err) => {
-      // Handle error
-    });
-  }
+  //   this.camera.getPicture(options).then((imageData) => {
+  //     // imageData is either a base64 encoded string or a file URI
+  //     // If it's base64 (DATA_URL):
+  //     console.log(imageData);
+  //     LocalData.imgData = 'data:image/jpeg;base64,' + imageData;
+  //     this.router.navigateByUrl('/camera');
+  //   }, (err) => {
+  //     // Handle error
+  //   });
+  // }
 
   startGeolocation() {
     const watch = this.geolocation.watchPosition();
